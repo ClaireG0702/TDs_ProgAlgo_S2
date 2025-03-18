@@ -14,7 +14,7 @@ else()
 endif()
 
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS "src/*.cpp")
-file(GLOB_RECURSE SRC_MAIN_FILES CONFIGURE_DEPENDS "src/main*.cpp")
+file(GLOB_RECURSE SRC_MAIN_FILES CONFIGURE_DEPENDS "src/ex*.cpp")
 
 # # Filter out main files
 # list(FILTER SRC_FILES EXCLUDE REGEX "src/main_.*.cpp")
