@@ -20,7 +20,7 @@ struct Token {
 
 Token make_token(float value);
 Token make_token(Operator op);
-std::vector<Token> tokenize(std::string const& s);
+std::vector<Token> tokenize(std::vector<std::string> const& s);
 size_t operator_precedence(Operator const op);
 std::vector<Token> infix_to_npi_tokens(std::string const& expression);
 float npi_evaluate(std::vector<Token> const& tokens);

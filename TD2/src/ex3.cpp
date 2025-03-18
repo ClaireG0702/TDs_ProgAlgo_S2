@@ -1,11 +1,3 @@
-#include <iostream>
-#include <sstream>
-#include <iterator>
-#include <string>
-#include <vector>
-#include <cctype>
-#include <stack>
-#include <cmath>
 #include "tokens.hpp"
 
 void print_npi_expression(const std::vector<Token>& npi_tokens) {

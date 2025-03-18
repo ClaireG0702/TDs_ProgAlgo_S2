@@ -14,12 +14,10 @@ Token make_token(Operator op) {
     return t;
 }
 
-std::vector<Token> tokenize(std::string const& s) {
+std::vector<Token> tokenize(std::vector<std::string> const& s) {
     std::vector<Token> tokens;
-    std::istringstream in(s);
-    std::string token;
 
-    while(in >> token) {
+    for(const auto& token : s) {
         if(token == "+") {
             tokens.push_back(make_token(Operator::ADD));
         } else if(token == "-") {
@@ -58,7 +56,13 @@ std::vector<Token> infix_to_npi_tokens(std::string const& expression) {
     std::vector<Token> npi_tokens;
     std::stack<Operator> operators;
 
-    std::vector<Token> infix_tokens = tokenize(expression);
+    std::istringstream iss(expression);
+    std::vector<std::string> tokens;
+    std::string token;
+    while (iss >> token) {
+        tokens.push_back(token);
+    }
+    std::vector<Token> infix_tokens = tokenize(tokens);
 
     for(std::vector<Token>::size_type i = 0; i < infix_tokens.size(); i++) {
         if(infix_tokens[i].type == TokenType::OPERAND) {
